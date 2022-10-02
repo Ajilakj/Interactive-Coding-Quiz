@@ -1,3 +1,8 @@
+/* global variables */
+:root{
+     --primaryColor:rgb(12, 12, 81);
+     --secondaryColor:rgb(217, 208, 193);
+}
 *{
      margin:0;
      padding:0;
@@ -7,15 +12,40 @@ body{
      background-color: seashell;
 }
 header,footer{
-     text-align: center;
      background-color: maroon;
      color: azure;
 }
 header{
      height: 75px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+header *{
+     margin: 25px;
+}
+#container{
+     font-size: 25px;
+}
+#container *{
+     margin: 25px;
+}
+#questions{
+     color: var(--primaryColor);
+}
+#options{
+     display: flex;
+     flex-wrap: wrap;
+}
+#options button{
+     padding: 25px;
+     background:var(--primaryColor);
+     color:var(--secondaryColor);
+     margin: 5px;
 }
 footer{
      height: 50px;
+     text-align: center;
 }
 footer h4{
      padding: 10px;
