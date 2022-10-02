@@ -1,3 +1,29 @@
+*{
+     margin:0;
+     padding:0;
+     box-sizing: border-box;
+}
 body{
-     background-color: brown;
+     background-color: seashell;
+}
+header,footer{
+     text-align: center;
+     background-color: maroon;
+     color: azure;
+}
+header{
+     height: 75px;
+}
+footer{
+     height: 50px;
+}
+footer h4{
+     padding: 10px;
+}
+#container{
+     width: 50vw;
+     margin: 25px auto;
+     background-color: seashell;
+     color: blueviolet;
+     border: 1px solid orange;
 }
