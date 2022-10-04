@@ -14,6 +14,7 @@ var opt3=document.getElementById("option3");
 var opt4=document.getElementById("option4");
 var start=document.getElementById("start");
 var submitBtn=document.getElementById("submit");
+var previousScore=localStorage.getItem("score");
 
 document.getElementById("questions").classList.add("sectionHide");
 document.getElementById("options").classList.add("sectionHide");
@@ -21,6 +22,9 @@ document.getElementById("finalScore").classList.add("sectionHide");
 // document.getElementById("initials").classList.add("sectionHide");
 // document.getElementById("submit").classList.add("sectionHide");
 
+
+
+document.getElementById("previousScore").textContent="Previous score: "+previousScore;
 submitBtn.addEventListener("click", function() {
      var initial=document.getElementById("initial").value;
      localStorage.setItem("initials", initial);
