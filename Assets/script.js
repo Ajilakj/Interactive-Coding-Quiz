@@ -14,7 +14,6 @@ var opt3=document.getElementById("option3");
 var opt4=document.getElementById("option4");
 var start=document.getElementById("start");
 var submitBtn=document.getElementById("submit");
-var initial=document.getElementById("initial").value;
 
 document.getElementById("questions").classList.add("sectionHide");
 document.getElementById("options").classList.add("sectionHide");
@@ -23,8 +22,9 @@ document.getElementById("finalScore").classList.add("sectionHide");
 // document.getElementById("submit").classList.add("sectionHide");
 
 submitBtn.addEventListener("click", function() {
-       localStorage.setItem("initials", initial);
-       localStorage.setItem("score", correct*5);
+     var initial=document.getElementById("initial").value;
+     localStorage.setItem("initials", initial);
+     localStorage.setItem("score", (correct*5));
    });
 
 function displayResult(){
