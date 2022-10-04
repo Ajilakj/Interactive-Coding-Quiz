@@ -15,17 +15,19 @@
      </header>
      <main id="container">
           <section id="start">
-               <p>This is an interactive coding quiz. The questions are based on JavaScript. You can select one of the 4 options. If you press a wrong answer time remaining will reduce by 1. If it reaches 0 OR you completed all the questions, a score card will be displayed. You can enter your initials and save your score </p>
+               <p>You can select one of the 4 options. If you press a wrong answer time remaining will reduce by 1. If it reaches 0 OR you completed all the questions, a score card will be displayed. You can enter your initials and save your score </p>
                <button id="startBtn">Start</button>
           </section>
-          <section id="questions"></section>
-          <section id="options">          
-               <button id="option1"></button>
-               <button id="option2"></button>
-               <button id="option3"></button>
-               <button id="option4"></button>
+          <section id="questionsAndOptions">
+               <div id="questions"></div>
+               <div id="options">          
+                    <button id="option1"></button>
+                    <button id="option2"></button>
+                    <button id="option3"></button>
+                    <button id="option4"></button>
+               </div>
+               <hr>
           </section>
-          <hr>
           <section id="result"></section>
           <section id="finalScore"><p id="score"></p>
                <input type="text" id="initial">

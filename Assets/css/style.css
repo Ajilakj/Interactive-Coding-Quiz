@@ -33,7 +33,7 @@ header *{
      visibility: visible;
 }
 #container{
-     width: 95vw;
+     width: 100vw;
      margin: 20px auto;
      font-size: 25px;
      background-color: seashell;
@@ -42,8 +42,13 @@ header *{
 }
 
 #container *{
-     margin: 15px;
+     margin: 5px;
 }
+/* section #start{
+     /* border: 1px solid blue;  */
+     /* width: 90vw; */
+     /* flex-basis:300px; 
+} */
 #questions{
      color: var(--primaryColor);
 }

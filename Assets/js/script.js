@@ -1,3 +1,4 @@
+// variable declarations
 var timeLeft=2;
 var index=0;
 var correct=0;
@@ -8,6 +9,7 @@ var dataArray={question:["The typeof operator in JavaScript returns ........ for
      options:[["array","object","undefined","string"],["==","!=","===","<>"],["<script src='script.js'>","<script href='script.js'>","<link src='script.js'>","<link href='script.js'>"],[".append()",".push()",".unShift()",".pop()"],[".append()",".appendChild()",".preppend()",".preppendChild()"]],
      answer:["object","===","<script src='script.js'>",".unShift()",".preppend()"]
 };
+
 var opt1=document.getElementById("option1");
 var opt2=document.getElementById("option2");
 var opt3=document.getElementById("option3");
@@ -16,42 +18,33 @@ var start=document.getElementById("start");
 var submitBtn=document.getElementById("submit");
 var previousScore=localStorage.getItem("score");
 
-document.getElementById("questions").classList.add("sectionHide");
-document.getElementById("options").classList.add("sectionHide");
-document.getElementById("finalScore").classList.add("sectionHide");
-// document.getElementById("initials").classList.add("sectionHide");
-// document.getElementById("submit").classList.add("sectionHide");
-
-
-
-document.getElementById("previousScore").textContent="Previous score: "+previousScore;
+function init(){
+     index=0;
+     document.getElementById("previousScore").textContent="Previous score: "+previousScore;
+     document.getElementById("questionsAndOptions").classList.add("sectionHide");
+     document.getElementById("finalScore").classList.add("sectionHide");
+}
+// submit button click event listner
+// will allow user to enter initial and submit score
+// then page will reload
 submitBtn.addEventListener("click", function() {
      var initial=document.getElementById("initial").value;
      localStorage.setItem("initials", initial);
      localStorage.setItem("score", (correct*5));
+     document. location. reload();
    });
 
+// final score either time left 0 OR end of questions   
 function displayResult(){
-     // document.getElementById("questions").classList.add("sectionHide");
-     // document.getElementById("options").classList.add("sectionHide");
-     //alert("correct:"+correct);
      document.getElementById("finalScore").classList.add("sectionVisible");
      document.getElementById("score").textContent="Final Score: You attended "+index+" questions. "+correct+" correct answers. Your score is "+correct*5 +" Enter your initials then press submit to keep your information";
 }
 
-
+// to display questions one by one and the 4 options
 function displayQuestion(){
      if(index<dataArray.answer.length && timeLeft>0){
           document.getElementById("questions").textContent=dataArray.question[index];
           var currentQuestionOptions=dataArray.options[index];
-          //alert(currentQuestionOptions);
-          // for(var j=0;j<2;j++){
-          //      var currentOption=("opt"+(j+1));
-          //      alert(currentOption);
-          //      alert(currentQuestionOptions[j]);
-          //      currentOption.textContent=currentQuestionOptions[j];
-          //      alert(currentOption.textContent);
-          // }
           opt1.textContent=currentQuestionOptions[0];
           opt2.textContent=currentQuestionOptions[1];
           opt3.textContent=currentQuestionOptions[2];
@@ -62,12 +55,12 @@ function displayQuestion(){
      }
 }
 
-//function to manage time left
+// function to manage time left
 function timeDecrement(){
      document.getElementById("timeLeft").textContent="Time left: "+timeLeft;
 }
 
-//to check the answer against user selection
+// to check the answer against user selection
 function checkAnswer(fromUser){
      if(fromUser===dataArray.answer[index]){
           correct++;
@@ -84,6 +77,8 @@ function checkAnswer(fromUser){
      index++;
      displayQuestion();
 }
+
+// checking the 4 options when user select one
 opt1.addEventListener("click", function() {
      checkAnswer(opt1.textContent);
 });
@@ -97,11 +92,14 @@ opt4.addEventListener("click", function() {
      checkAnswer(opt4.textContent);
 });
 
+// start button click event listner
+// will display questions and options
 startBtn.addEventListener("click", function() {
-     document.getElementById("startBtn").classList.add("sectionHide");
-     document.getElementById("questions").classList.add("sectionVisible");
-     document.getElementById("options").classList.add("sectionVisible");
-     
+     document.getElementById("questionsAndOptions").classList.add("sectionVisible");
+     init();
      timeDecrement();
      displayQuestion();
 });
+
+// application start here
+init();
