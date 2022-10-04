@@ -24,11 +24,25 @@ header{
 header *{
      margin: 25px;
 }
-#container{
-     font-size: 25px;
+.sectionHide{
+     /* display: none;   */
+     visibility:hidden;
 }
+.sectionVisible{
+     /* display:inline; */
+     visibility: visible;
+}
+#container{
+     width: 95vw;
+     margin: 20px auto;
+     font-size: 25px;
+     background-color: seashell;
+     color: blueviolet;
+     border: 1px solid orange;
+}
+
 #container *{
-     margin: 25px;
+     margin: 15px;
 }
 #questions{
      color: var(--primaryColor);
@@ -37,23 +51,19 @@ header *{
      display: flex;
      flex-wrap: wrap;
 }
-#options button{
-     padding: 25px;
+button{
+     padding: 20px;
      background:var(--primaryColor);
      color:var(--secondaryColor);
-     margin: 5px;
+     margin:0 5px;
 }
+/* #result{
+     display: none;
+} */
 footer{
      height: 50px;
      text-align: center;
 }
 footer h4{
      padding: 10px;
-}
-#container{
-     width: 50vw;
-     margin: 25px auto;
-     background-color: seashell;
-     color: blueviolet;
-     border: 1px solid orange;
 }
