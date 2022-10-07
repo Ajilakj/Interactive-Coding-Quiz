@@ -1,4 +1,4 @@
-# Interactive codingQuiz
+# Interactive Coding Quiz
 
 ## Installation
 N/A
