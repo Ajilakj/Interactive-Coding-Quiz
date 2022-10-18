@@ -1,4 +1,4 @@
-# Password Generator
+# Interactive Coding Quiz
 
 ## Installation
 N/A
