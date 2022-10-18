@@ -15,15 +15,27 @@ var opt2=document.getElementById("option2");
 var opt3=document.getElementById("option3");
 var opt4=document.getElementById("option4");
 var start=document.getElementById("start");
+var question=document.getElementById("questionsAndOptions");
+var finalScore=document.getElementById("finalScore");
+var restart=document.getElementById("restart");
 var submitBtn=document.getElementById("submit");
+var restartBtn=document.getElementById("start-again");
+var clearBtn=document.getElementById("clear");
 var previousScore=localStorage.getItem("score");
+
 
 function init(){
      index=0;
+     if(previousScore===null){
+          previousScore=0;
+     }
      document.getElementById("previousScore").textContent="Previous score: "+previousScore;
-     document.getElementById("questionsAndOptions").classList.add("sectionHide");
-     document.getElementById("finalScore").classList.add("sectionHide");
+     question.classList.add("sectionHide");
+     finalScore.classList.add("sectionHide");
+     restart.classList.add("sectionHide");
 }
+
+
 // submit button click event listner
 // will allow user to enter initial and submit score
 // then page will reload
@@ -31,12 +43,15 @@ submitBtn.addEventListener("click", function() {
      var initial=document.getElementById("initial").value;
      localStorage.setItem("initials", initial);
      localStorage.setItem("score", (correct*5));
-     document. location. reload();
+     result.style.display = "none";
+     finalScore.style.display = "none";
+     restartAndClear();
+    // document. location. reload();
    });
 
 // final score either time left 0 OR end of questions   
 function displayResult(){
-     document.getElementById("finalScore").classList.add("sectionVisible");
+     finalScore.classList.add("sectionVisible");
      document.getElementById("score").textContent="Final Score: You attended "+index+" questions. "+correct+" correct answers. Your score is "+correct*5 +" Enter your initials then press submit to keep your information";
 }
 
@@ -51,6 +66,7 @@ function displayQuestion(){
           opt4.textContent=currentQuestionOptions[3];
      }
      else{
+          question.style.display = "none";
           displayResult();
      }
 }
@@ -99,6 +115,7 @@ startBtn.addEventListener("click", function() {
      init();
      timeDecrement();
      displayQuestion();
+     start.style.display = "none";
 });
 
 // application start here

@@ -33,7 +33,7 @@ header *{
      visibility: visible;
 }
 #container{
-     width: 100vw;
+     width: 90vw;
      margin: 20px auto;
      font-size: 25px;
      background-color: seashell;
