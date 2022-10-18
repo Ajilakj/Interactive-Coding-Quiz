@@ -17,24 +17,45 @@ var opt4=document.getElementById("option4");
 var start=document.getElementById("start");
 var question=document.getElementById("questionsAndOptions");
 var finalScore=document.getElementById("finalScore");
+var startBtn=document.getElementById("startBtn");
 var restart=document.getElementById("restart");
 var submitBtn=document.getElementById("submit");
 var restartBtn=document.getElementById("start-again");
 var clearBtn=document.getElementById("clear");
-var previousScore=localStorage.getItem("score");
+var previousScoreFromLocal=localStorage.getItem("score");
 
 
 function init(){
      index=0;
-     if(previousScore===null){
-          previousScore=0;
-     }
-     document.getElementById("previousScore").textContent="Previous score: "+previousScore;
+     displayPreviousScore(previousScoreFromLocal);
      question.classList.add("sectionHide");
      finalScore.classList.add("sectionHide");
      restart.classList.add("sectionHide");
 }
 
+function displayPreviousScore(score){
+     if(score===null){
+          score=0;
+     }
+     document.getElementById("previousScore").textContent="Previous score: "+score;
+}
+
+// will clear the local storage
+clearBtn.addEventListener("click", function() {
+     localStorage.setItem("score", 0);
+     document. location. reload();
+});
+
+
+// restart button click event listner (start from the beginning)
+restartBtn.addEventListener("click", function() {
+    document. location. reload();
+});
+
+
+function restartAndClear(){
+     restart.classList.add("sectionVisible");
+}
 
 // submit button click event listner
 // will allow user to enter initial and submit score
@@ -45,6 +66,7 @@ submitBtn.addEventListener("click", function() {
      localStorage.setItem("score", (correct*5));
      result.style.display = "none";
      finalScore.style.display = "none";
+     displayPreviousScore(correct*5);
      restartAndClear();
     // document. location. reload();
    });
